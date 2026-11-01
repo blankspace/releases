@@ -1,22 +1,22 @@
 {
-  "versionName": "1.11.0",
-  "versionCode": 40,
-  "notes": "- 新增应用内检查更新：启动时自动检查，可直接下载并安装新版本\n- 设置页「检查更新」改为从发布仓库获取版本信息",
+  "versionName": "1.12.0",
+  "versionCode": 41,
+  "notes": "- 有活跃连接的通道连续 3 次健康检查失败时主动重建，不再等待 150 秒心跳超时，减少\"悄悄死掉\"的通道导致的长时间卡顿\n- 亮屏时对承载流量的通道每 10 秒检查一次；息屏 / Doze 状态不增加任何额外流量，保持省电\n- 健康检查超时 2 秒 → 5 秒，降低高负载时的误判\n- 断开日志记录关闭原因、通道存活时长和距上次收包时间，便于分析断流",
   "apks": {
     "arm64-v8a": {
-      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.11.0/SimpleTunnel-1.11.0-arm64-v8a.apk",
-      "sha256": "01b38a962315deeb926d0228895c8d26c1a84cbf631b6827be64b03ca8898648",
-      "size": 21404016
+      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.12.0/SimpleTunnel-1.12.0-arm64-v8a.apk",
+      "sha256": "71468c8dd5d9f1ade1a21395df4f98e028a7afa58e24235d8a2712ea1137532a",
+      "size": 21411360
     },
     "x86_64": {
-      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.11.0/SimpleTunnel-1.11.0-x86_64.apk",
-      "sha256": "963f47c3902c00c28328c749ebaaaf6362e909bdfeb097320aa9bc02fdce5180",
-      "size": 21932826
+      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.12.0/SimpleTunnel-1.12.0-x86_64.apk",
+      "sha256": "29362018ea6dbf56e520d1fbc585bf4dc599412fdbf9032d4e759db412bde33d",
+      "size": 21940102
     },
     "universal": {
-      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.11.0/SimpleTunnel-1.11.0-universal.apk",
-      "sha256": "13bcab2f180c900faf557f3a62392978d26591900387f0d38445357e78402ea0",
-      "size": 37861321
+      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.12.0/SimpleTunnel-1.12.0-universal.apk",
+      "sha256": "3edcce1e0d5c674cd673ce29b5dc8d9ba61d4bad09ed3895b8c1d6e8b1812a8a",
+      "size": 37875205
     }
   }
 }
