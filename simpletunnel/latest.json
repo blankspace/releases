@@ -1,22 +1,22 @@
 {
-  "versionName": "1.12.0",
-  "versionCode": 41,
-  "notes": "- 有活跃连接的通道连续 3 次健康检查失败时主动重建，不再等待 150 秒心跳超时，减少\"悄悄死掉\"的通道导致的长时间卡顿\n- 亮屏时对承载流量的通道每 10 秒检查一次；息屏 / Doze 状态不增加任何额外流量，保持省电\n- 健康检查超时 2 秒 → 5 秒，降低高负载时的误判\n- 断开日志记录关闭原因、通道存活时长和距上次收包时间，便于分析断流",
+  "versionName": "1.13.0",
+  "versionCode": 42,
+  "notes": "- 新增全局 xtunnel 心跳设置（设置 → xtunnel 心跳）：心跳间隔 / 超时，默认 60 秒 / 150 秒（省电），对所有 xtunnel 节点生效，下次连接时生效；取代按节点配置的心跳\n- 客户端会把心跳参数告知服务端，服务端按客户端设置调整自己的心跳，息屏时不再被服务端频繁唤醒",
   "apks": {
     "arm64-v8a": {
-      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.12.0/SimpleTunnel-1.12.0-arm64-v8a.apk",
-      "sha256": "71468c8dd5d9f1ade1a21395df4f98e028a7afa58e24235d8a2712ea1137532a",
-      "size": 21411360
+      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.13.0/SimpleTunnel-1.13.0-arm64-v8a.apk",
+      "sha256": "d102857dd9359a4d7c1a96b18b1910505fe791301a091851a9fd3a50b5bb9fd7",
+      "size": 21420096
     },
     "x86_64": {
-      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.12.0/SimpleTunnel-1.12.0-x86_64.apk",
-      "sha256": "29362018ea6dbf56e520d1fbc585bf4dc599412fdbf9032d4e759db412bde33d",
-      "size": 21940102
+      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.13.0/SimpleTunnel-1.13.0-x86_64.apk",
+      "sha256": "4482f8da0e2bd6cee3f1617d00307bc20dec2e908bd857c9984ebbe6c513c7df",
+      "size": 21950030
     },
     "universal": {
-      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.12.0/SimpleTunnel-1.12.0-universal.apk",
-      "sha256": "3edcce1e0d5c674cd673ce29b5dc8d9ba61d4bad09ed3895b8c1d6e8b1812a8a",
-      "size": 37875205
+      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.13.0/SimpleTunnel-1.13.0-universal.apk",
+      "sha256": "fb4d8312d3d17a72e67179a45b81c71a6bf76175e712ee7148c7b672bd4d9f5f",
+      "size": 37886805
     }
   }
 }
