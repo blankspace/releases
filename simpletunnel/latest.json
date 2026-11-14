@@ -1,22 +1,22 @@
 {
-  "versionName": "1.14.0",
-  "versionCode": 43,
-  "notes": "- 新增 Hysteria2 节点支持：TCP、原生 UDP、Salamander 混淆、端口跳跃、上下行带宽，TLS 可设置 SNI / insecure / ALPN\n- 订阅支持 hysteria2 节点（字段与 sing-box hysteria2 outbound 一致）；订阅中出现不支持的节点类型时跳过并在日志中提示，不再导致整个订阅更新失败\n- 息屏时 Hysteria2 空闲连接自动释放，不再每 10 秒发送心跳唤醒网络，降低息屏耗电",
+  "versionName": "1.14.1",
+  "versionCode": 44,
+  "notes": "- 修复 Chrome、Vivaldi 等 Chromium 内核浏览器中安装扩展失败（提示 \"Image decode failed\"）、部分请求被浏览器\"本地网络访问\"保护拦截的问题：FakeDNS 不再分配假 IPv6 地址，走代理的域名统一使用假 IPv4；走直连的域名照常使用真实 IPv6",
   "apks": {
     "arm64-v8a": {
-      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.14.0/SimpleTunnel-1.14.0-arm64-v8a.apk",
-      "sha256": "f1ede60fde2cee61d61c4ade0c78b5e2e347be515fdaf499bd03836370e5499e",
-      "size": 24031716
+      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.14.1/SimpleTunnel-1.14.1-arm64-v8a.apk",
+      "sha256": "7974d599fb0527782f4ccd116118240b1c433196d97c11dfd1cf8f211c40a1e8",
+      "size": 24030128
     },
     "x86_64": {
-      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.14.0/SimpleTunnel-1.14.0-x86_64.apk",
-      "sha256": "72ee8e16a1c300ee4e123d95784347aae7cc8d45f22daef7fac6b11143931c26",
-      "size": 24771374
+      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.14.1/SimpleTunnel-1.14.1-x86_64.apk",
+      "sha256": "89ce693780b4d31f49f97fd34ba39d9a5078609694b22e05839f79b08ccd951b",
+      "size": 24770634
     },
     "universal": {
-      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.14.0/SimpleTunnel-1.14.0-universal.apk",
-      "sha256": "7ac4665924a5af2d5437719caacde749c228c279df5fe1776671c00933743d9c",
-      "size": 43315269
+      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.14.1/SimpleTunnel-1.14.1-universal.apk",
+      "sha256": "fd6b5b975a474c26f5642809357f3ee0795f338ac33b7d47baf8250f0eb91732",
+      "size": 43313061
     }
   }
 }
