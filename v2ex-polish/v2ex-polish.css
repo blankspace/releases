@@ -1,0 +1,879 @@
+/*
+ * V2EX 自定义 CSS —— 参考 V2EX Polish 默认主题（coolpace/V2EX_Polish）
+ * 纯 CSS、不依赖插件脚本；浅色为默认，切换 V2EX 原生夜间模式时自动套用暗色变量。
+ */
+
+/* ========== 设计变量（浅色） ========== */
+:root,
+body {
+  --v2p-box-radius: 10px;
+  --v2p-button-radius: 6px;
+  --v2p-input-radius: 6px;
+  --v2p-content-width: 1120px;
+  --v2p-rightbar-width: 270px;
+  --v2p-gap: 25px;
+  --v2p-nav-height: 55px;
+
+  --v2p-main-50: #f7f9fb;
+  --v2p-main-100: #f1f5f9;
+  --v2p-main-150: #eaeff5;
+  --v2p-main-200: #e2e8f0;
+  --v2p-main-300: #cbd5e1;
+  --v2p-main-400: #94a3b8;
+  --v2p-main-500: #64748b;
+  --v2p-main-600: #475569;
+  --v2p-main-800: #1e293b;
+  --v2p-accent-50: #ecfdf5;
+  --v2p-accent-100: #d1fae5;
+  --v2p-accent-200: #a7f3d0;
+  --v2p-accent-400: #34d399;
+  --v2p-accent-500: #10b981;
+  --v2p-accent-600: #059669;
+  --v2p-accent-700: #047857;
+  --v2p-orange-50: #fff7ed;
+  --v2p-orange-400: #fb923c;
+
+  --v2p-bg: #f2f3f5;
+  --v2p-bg-content: #fff;
+  --v2p-bg-block: var(--v2p-main-100);
+  --v2p-bg-input: var(--v2p-main-50);
+  --v2p-bg-reply: var(--v2p-main-100);
+  --v2p-fg: var(--v2p-main-800);
+  --v2p-fg-2: var(--v2p-main-600);
+  --v2p-fg-3: var(--v2p-main-500);
+  --v2p-fg-4: var(--v2p-main-400);
+  --v2p-border: var(--v2p-main-200);
+  --v2p-border-darker: var(--v2p-main-300);
+  --v2p-btn-bg: var(--v2p-main-100);
+  --v2p-btn-fg: var(--v2p-main-500);
+  --v2p-btn-bg-hover: var(--v2p-main-200);
+  --v2p-btn-fg-hover: var(--v2p-main-600);
+  --v2p-btn-border: var(--v2p-main-300);
+  --v2p-box-shadow: 0 3px 5px 0 rgb(0 0 0 / 4%);
+  --v2p-widget-shadow: 0 9px 24px -3px rgb(0 0 0 / 6%), 0 4px 8px -1px rgb(0 0 0 / 12%);
+
+  /* 覆盖 V2EX 原生变量 */
+  --color-fade: var(--v2p-fg-2);
+  --color-gray: var(--v2p-fg-2);
+  --link-color: var(--v2p-fg);
+  --link-darker-color: var(--v2p-main-600);
+  --link-hover-color: var(--v2p-fg);
+  --link-caution-color: var(--v2p-orange-400);
+  --box-border-color: var(--v2p-border);
+  --box-foreground-color: var(--v2p-fg);
+  --box-background-color: var(--v2p-bg-content);
+  --box-background-alt-color: var(--v2p-main-100);
+  --box-background-hover-color: var(--v2p-main-200);
+  --box-border-radius: var(--v2p-box-radius);
+  --button-background-color: var(--v2p-btn-bg);
+  --button-foreground-color: var(--v2p-btn-fg);
+  --button-hover-color: var(--v2p-btn-bg-hover);
+  --button-border-color: var(--v2p-main-300);
+  --button-border-hover-color: var(--v2p-main-400);
+}
+
+/* ========== 暗色（跟随 V2EX 原生夜间模式） ========== */
+:root:has(#Wrapper.Night),
+body:has(#Wrapper.Night) {
+  color-scheme: dark;
+
+  --v2p-main-100: #2d333b;
+  --v2p-main-150: #323a46;
+  --v2p-main-200: #374151;
+  --v2p-main-300: #374151;
+  --v2p-main-400: #6b7280;
+  --v2p-main-500: #9ca3af;
+  --v2p-main-600: #9ca3af;
+  --v2p-accent-50: #064e3b;
+  --v2p-accent-100: #065f46;
+  --v2p-accent-200: #047857;
+  --v2p-accent-400: #10b981;
+  --v2p-accent-500: #34d399;
+  --v2p-accent-600: #6ee7b7;
+  --v2p-accent-700: #6ee7b7;
+  --v2p-orange-50: #593600;
+  --v2p-orange-400: #fbe090;
+
+  --v2p-bg: #1c2128;
+  --v2p-bg-content: #22272e;
+  --v2p-bg-block: #373e47;
+  --v2p-bg-input: #1c2128;
+  --v2p-fg: #adbac7;
+  --v2p-border: #444c56;
+  --v2p-border-darker: #444c56;
+  --v2p-btn-bg: #373e47;
+  --v2p-btn-fg: #adbac7;
+  --v2p-btn-bg-hover: #444c56;
+  --v2p-btn-fg-hover: #adbac7;
+  --v2p-btn-border: #444c56;
+  --v2p-box-shadow: 0 0 0 1px #444c56;
+
+  --link-color: var(--v2p-fg);
+  --box-background-hover-color: var(--v2p-main-300);
+  --button-border-color: #444c56;
+  --button-border-hover-color: #768390;
+}
+
+body:has(#Wrapper.Night) #Logo {
+  background-image: url('https://www.v2ex.com/static/img/v2ex-alt@2x.png');
+}
+
+body:has(#Wrapper.Night) .item_title .topic-link {
+  font-weight: normal;
+}
+
+/* ========== 基础 ========== */
+:root {
+  background-color: var(--v2p-bg);
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  color: var(--v2p-fg);
+  background-color: var(--v2p-bg);
+}
+
+::selection {
+  color: var(--v2p-main-100);
+  background-color: var(--v2p-fg);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline 1px;
+  text-underline-offset: 0.5ex;
+}
+
+/* ========== 布局 ========== */
+#Top {
+  height: var(--v2p-nav-height);
+  border: none;
+  background-color: var(--v2p-bg-content);
+}
+
+#Top .content,
+#Top .site-nav {
+  height: 100%;
+}
+
+#Top .site-nav {
+  padding: 0;
+}
+
+#Top .tools {
+  display: flex;
+  gap: 8px 14px;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 14px;
+}
+
+#Top .tools * {
+  margin-left: 0;
+}
+
+#Top .tools .top {
+  height: 26px;
+  padding: 0 6px;
+  border-radius: var(--v2p-button-radius);
+  line-height: 26px;
+  color: var(--v2p-btn-fg);
+  white-space: nowrap;
+}
+
+#Top .tools .top:hover {
+  color: var(--v2p-fg);
+  text-decoration: none;
+  background-color: var(--v2p-btn-bg-hover);
+}
+
+#Wrapper,
+#Wrapper.Night {
+  background-color: inherit;
+  background-image: none;
+}
+
+#Wrapper .content {
+  display: flex;
+  gap: var(--v2p-gap);
+  max-width: var(--v2p-content-width);
+}
+
+#Leftbar {
+  float: none;
+  order: 1;
+}
+
+#Main {
+  flex: 1;
+  order: 2;
+  min-width: 0;
+  margin: 0;
+}
+
+#Rightbar {
+  float: none;
+  order: 3;
+  width: var(--v2p-rightbar-width);
+  margin-right: var(--v2p-gap);
+}
+
+#Bottom {
+  border: none;
+  color: var(--v2p-fg-2);
+  background-color: var(--v2p-bg-content);
+}
+
+#Bottom a.dark {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--v2p-fg-3);
+}
+
+/* ========== 搜索 ========== */
+#search-container {
+  height: 30px;
+  margin: 0 30px;
+  border: none;
+  border-radius: var(--v2p-input-radius);
+  background-color: var(--v2p-main-100);
+}
+
+#search-container.active {
+  background-color: var(--v2p-main-150);
+}
+
+#search-container::before {
+  top: 0;
+  left: 4px;
+  opacity: 0.6;
+  background-size: 14px 14px;
+  filter: none;
+}
+
+#search-container #search {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#search-container #search-result {
+  top: 42px;
+  border: 1px solid var(--v2p-border);
+  font-size: 14px;
+  color: var(--v2p-fg-2);
+  background: var(--v2p-bg-content);
+  box-shadow: var(--v2p-widget-shadow);
+}
+
+#search-result .search-item {
+  border-radius: var(--v2p-button-radius);
+  font-weight: bold;
+  color: var(--v2p-fg);
+}
+
+/* ========== 卡片 ========== */
+.box {
+  border: none;
+  border-radius: var(--v2p-box-radius);
+  color: var(--v2p-fg);
+  background-color: var(--v2p-bg-content);
+  box-shadow: var(--v2p-box-shadow);
+}
+
+.box .header {
+  font-weight: 500;
+}
+
+.box .header > h1 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#Main .box {
+  overflow: hidden;
+  padding: 0 12px;
+}
+
+#Main .box.node-header > .cell {
+  margin: 0 -12px;
+}
+
+/* 用 :where 压低优先级，让 V2EX 原生楼中楼（.reply-threads-d / -f / .reply-group）的缩进规则胜出 */
+:where(#Main .box) .cell {
+  padding: 16px 10px;
+}
+
+#Main .box .cell {
+  background-image: none !important;
+}
+
+.cell_ops {
+  background-color: transparent;
+}
+
+/* ========== 按钮 ========== */
+.button.normal,
+.button.super,
+.button.special {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  height: 28px;
+  padding: 0 12px;
+  border: 1px solid var(--v2p-btn-border);
+  border-radius: var(--v2p-button-radius);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28px;
+  color: var(--v2p-btn-fg);
+  text-shadow: none;
+  white-space: nowrap;
+  background: var(--v2p-btn-bg);
+  box-shadow: 0 1.8px 0 var(--box-background-hover-color);
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.button.normal:hover,
+.button.super:hover {
+  border-color: var(--v2p-btn-border);
+  color: var(--v2p-btn-fg-hover);
+  text-shadow: none;
+  background: var(--v2p-btn-bg-hover);
+}
+
+.button.special,
+.button.special:hover {
+  border-color: var(--v2p-accent-600);
+  color: var(--v2p-accent-700);
+  text-shadow: none;
+  background: var(--v2p-accent-50);
+  box-shadow: 0 1.8px 0 var(--v2p-accent-200);
+}
+
+.button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ========== 首页 Tabs ========== */
+#Tabs {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 3px;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--v2p-border);
+  background-color: var(--v2p-bg-content);
+}
+
+#Main .tab,
+#Main .tab_current {
+  margin: 0;
+  border-radius: var(--v2p-button-radius);
+  user-select: none;
+}
+
+#Main .tab {
+  color: var(--v2p-fg);
+  background-color: transparent;
+}
+
+#Main .tab:hover {
+  text-decoration: none;
+  background-color: var(--v2p-bg-block);
+}
+
+#Main .tab_current {
+  color: var(--v2p-bg-content);
+  background-color: var(--v2p-fg);
+}
+
+#SecondaryTabs {
+  padding: 10px;
+  background-color: var(--v2p-main-100);
+}
+
+#SecondaryTabs a {
+  color: var(--v2p-fg);
+}
+
+/* ========== 主题列表 ========== */
+#Main .cell .topic-link {
+  color: var(--v2p-fg);
+  text-decoration: none;
+}
+
+#Main .cell .topic-link:visited {
+  color: var(--v2p-fg-4);
+}
+
+#Main .cell .item_title .topic-link {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+#Main .cell .topic_info a[href^='/member'] {
+  font-weight: 500;
+  color: var(--v2p-fg-3);
+}
+
+#Main .cell .count_livid,
+#Main .cell .count_orange {
+  display: inline-block;
+  margin-right: 0;
+  padding: 5px 10px;
+  border-radius: var(--v2p-button-radius);
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+#Main .cell .count_livid {
+  color: var(--v2p-btn-fg);
+  background-color: var(--v2p-bg-block);
+}
+
+#Main .cell .count_orange {
+  font-weight: bold;
+  color: var(--v2p-bg-content);
+  background-color: var(--v2p-orange-400);
+}
+
+a.node:is(:link, :visited, :active) {
+  padding: 5px 6px;
+  border-radius: var(--v2p-button-radius);
+  font-size: 13px;
+  color: var(--v2p-fg-2);
+  background-color: var(--v2p-bg-block);
+}
+
+a.node:hover {
+  color: var(--v2p-fg-3);
+  text-decoration: none;
+  background-color: var(--v2p-btn-bg-hover);
+}
+
+.box .tag:is(:link, :visited) {
+  border-radius: var(--v2p-button-radius);
+  font-size: 12px;
+  color: var(--v2p-fg-2);
+  background-color: var(--v2p-main-100);
+}
+
+/* ========== 帖子正文 ========== */
+.topic_content,
+.reply_content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: currentColor;
+}
+
+/* 正文链接样式不作用于 V2EX 原生楼中楼组件（.reply-quote / .reply-chip / .reply-strip 等） */
+:is(.topic_content, .reply_content, .markdown_body) a[href^='http']:not([class*='reply-']) {
+  color: currentColor;
+  text-decoration: underline 1.5px;
+  text-underline-offset: 0.46ex;
+  background-color: var(--v2p-main-100);
+}
+
+:is(.topic_content, .reply_content, .markdown_body) :is(a[href*='v2ex.com/t'], a[href^='/t/']):not([class*='reply-']) {
+  color: var(--v2p-accent-600);
+  text-decoration: underline 1.5px;
+  text-underline-offset: 0.46ex;
+  background-color: var(--v2p-accent-50);
+}
+
+:is(.topic_content, .reply_content, .markdown_body) a:has(> .embedded_image) {
+  background-color: transparent;
+}
+
+/* 被 @ 的用户 */
+:is(.topic_content, .reply_content) a[href^='/member']:not(.dark, [class*='reply-']) {
+  font-size: 13px;
+  color: var(--v2p-fg-3);
+  text-decoration: underline;
+  text-underline-offset: 0.4ex;
+  background-color: transparent;
+}
+
+.markdown_body blockquote {
+  margin-inline: 0;
+  padding: 0 1em;
+  border-left: 3px solid var(--v2p-border);
+  color: var(--v2p-fg-3);
+}
+
+.markdown_body pre,
+.markdown_body pre > .hljs {
+  line-height: 1.5;
+  color: var(--v2p-fg);
+  background-color: var(--v2p-bg-block);
+}
+
+.markdown_body table {
+  border-top: 1px solid var(--v2p-border-darker);
+  box-shadow: none;
+}
+
+.markdown_body table :is(th, td) {
+  border: 1px solid var(--v2p-border-darker);
+}
+
+.markdown_body table tr:nth-child(2n) {
+  background-color: var(--v2p-main-100);
+}
+
+/* 附言 */
+.subtle {
+  border-left: 3px solid var(--v2p-accent-200);
+  background-color: color-mix(in srgb, var(--v2p-accent-50) 90%, transparent);
+}
+
+.subtle .topic_content {
+  font-size: 15px;
+}
+
+.outdated {
+  border-color: var(--v2p-border);
+  border-bottom: none;
+  font-size: 12px;
+}
+
+/* 帖子操作按钮 */
+#Main .topic_buttons {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 5px;
+  align-items: center;
+  padding: 8px 0;
+  background: none;
+}
+
+#Main .topic_buttons .topic_stats {
+  float: none;
+  flex: 1;
+  order: 99;
+  margin-left: 10px;
+  padding: 0 !important;
+  font-size: 12px;
+  text-shadow: none;
+  white-space: nowrap;
+}
+
+#Main .topic_buttons a.tb:link {
+  padding: 5px;
+  border-radius: var(--v2p-button-radius);
+  color: var(--v2p-fg-2);
+  text-shadow: none;
+  white-space: nowrap;
+  background: none;
+}
+
+#Main .topic_buttons a.tb:hover {
+  color: currentColor;
+  text-decoration: none;
+  background: var(--v2p-bg-block);
+}
+
+#Main .vote:link {
+  border-color: var(--v2p-border-darker);
+  border-radius: var(--v2p-button-radius);
+  color: var(--v2p-fg-3);
+}
+
+/* ========== 回复 ==========
+ * 不改回复的背景、头像尺寸和列宽：V2EX 原生楼中楼依赖它们
+ * （树状模式按 48px/24px 头像中心画连接线，分组模式用浅色底区分）。
+ */
+#Main .cell[id^='r']:not(:has(+ .cell[id^='r'])) {
+  border-bottom: none;
+}
+
+#Main .cell[id^='r'] .reply_content {
+  padding-bottom: 10px;
+  line-height: 1.5;
+}
+
+#Main .cell[id^='r'] .ago {
+  font-size: 12px;
+  color: var(--v2p-fg-4);
+  white-space: nowrap;
+}
+
+#Main .cell[id^='r'] .avatar {
+  border-radius: var(--v2p-button-radius);
+  background-color: var(--v2p-main-300);
+}
+
+#Main .cell[id^='r'] > table td:last-of-type a.dark {
+  color: var(--v2p-fg-2);
+}
+
+/* 回复右上角操作（感谢/隐藏/回复）悬停时才显示 */
+#Main .cell[id^='r'] > table td:last-of-type .fr a {
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+#Main .cell[id^='r']:hover > table td:last-of-type .fr a {
+  opacity: 1;
+}
+
+#Main .cell[id^='r'] .no {
+  padding: 5px 10px;
+  border-radius: var(--v2p-button-radius);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--v2p-fg-4);
+  background-color: transparent;
+}
+
+/* 楼主 / 管理员 / 自己 徽章 */
+.badge {
+  padding: 2px 5px;
+  border: 1px solid var(--v2p-accent-400);
+  font-weight: bold;
+  user-select: none;
+}
+
+.badge:first-child {
+  border-top-left-radius: var(--v2p-button-radius);
+  border-bottom-left-radius: var(--v2p-button-radius);
+}
+
+.badge:last-child {
+  border-top-right-radius: var(--v2p-button-radius);
+  border-bottom-right-radius: var(--v2p-button-radius);
+}
+
+.badge.op {
+  color: var(--v2p-accent-500);
+  background-color: var(--v2p-accent-50);
+}
+
+.badge.mod {
+  color: var(--v2p-bg-content);
+  background-color: var(--v2p-accent-400);
+}
+
+.badge.you {
+  border-color: var(--v2p-orange-400);
+  color: var(--v2p-orange-400);
+  background-color: var(--v2p-orange-50);
+}
+
+.badge.mini {
+  height: 1.2em;
+  padding: 0 3px;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1;
+}
+
+/* 回复框 */
+#reply-box.reply-box-sticky {
+  bottom: 20px;
+  border: none;
+  border-radius: var(--v2p-box-radius);
+  outline: 2px solid var(--v2p-border);
+}
+
+#reply-box > .cell {
+  font-size: 12px;
+}
+
+/* ========== 分页 ========== */
+:is(.page_normal, .page_current):is(:link, :visited) {
+  padding: 6px 9px;
+  border: none;
+  border-radius: var(--v2p-button-radius);
+  font-size: 14px;
+  user-select: none;
+}
+
+.page_normal:is(:link, :visited) {
+  font-weight: 500;
+  background-color: var(--v2p-bg-content);
+  box-shadow: 0 2px 2px var(--box-background-hover-color);
+  transition: transform 0.25s;
+}
+
+.page_normal:hover {
+  text-decoration: none;
+  transform: scale(1.1) translateY(-2px);
+}
+
+.page_current:is(:link, :visited) {
+  font-weight: bold;
+  background-color: var(--box-background-hover-color);
+  box-shadow: none;
+}
+
+/* ========== 输入框 ========== */
+.ml,
+.mle,
+.mll,
+.sl,
+.sll,
+.sls {
+  padding: 7px 10.5px;
+  border-color: var(--v2p-border-darker);
+  border-radius: var(--v2p-input-radius);
+  color: var(--v2p-fg);
+  background-color: var(--v2p-bg-content);
+}
+
+:is(.ml, .mle, .mll, .sl, .sll, .sls)::placeholder {
+  color: var(--v2p-fg-3);
+}
+
+:is(.ml, .mle, .mll, .sl, .sll, .sls):focus {
+  border-color: var(--v2p-main-400);
+}
+
+#reply_content,
+#topic_title,
+#topic_content,
+#topic_supplement {
+  border: 1px solid var(--v2p-border-darker);
+  border-radius: var(--v2p-input-radius);
+  font-size: 15px;
+  color: currentColor;
+  background-color: var(--v2p-bg-input);
+}
+
+:is(#reply_content, #topic_title, #topic_content, #topic_supplement):focus {
+  border-color: var(--v2p-main-400);
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+input,
+select,
+textarea {
+  color: var(--v2p-fg);
+}
+
+select {
+  padding: 6px 8px;
+  border: 1px solid var(--v2p-border);
+  border-radius: var(--v2p-input-radius);
+  background-color: var(--v2p-bg-content);
+  cursor: pointer;
+}
+
+.ml[name='my_css'] {
+  font-family: Consolas, Menlo, monospace;
+}
+
+/* ========== 右侧栏 ========== */
+#Rightbar .box .item_node {
+  border-color: var(--v2p-border);
+  border-radius: var(--v2p-button-radius);
+  font-size: 12px;
+  color: var(--v2p-fg-2);
+}
+
+#Rightbar .box .item_node:hover {
+  text-decoration: none;
+  box-shadow: var(--v2p-box-shadow);
+}
+
+#Rightbar a.dark:is(:link, :visited, :active) {
+  color: var(--v2p-fg-3);
+}
+
+#Rightbar a.dark:hover {
+  color: var(--v2p-fg-2);
+}
+
+.item_hot_topic_title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.4;
+  text-shadow: none;
+}
+
+.balance_area,
+a.balance_area:is(:link, :visited) {
+  display: inline-flex;
+  gap: 3px;
+  align-items: center;
+  font-weight: 600;
+  color: var(--v2p-fg);
+  text-shadow: none;
+  background: var(--v2p-btn-bg);
+}
+
+/* ========== 杂项 ========== */
+.online {
+  padding: 6px 8px;
+  border-radius: var(--v2p-button-radius);
+  font-size: 13px;
+  color: var(--v2p-bg-content);
+  background: var(--v2p-accent-400);
+}
+
+.green {
+  color: var(--v2p-accent-500);
+}
+
+.snow {
+  color: var(--v2p-fg-4);
+}
+
+.message,
+.problem {
+  border: none;
+  color: var(--v2p-orange-400);
+  background-color: var(--v2p-orange-50);
+}
+
+.dock_area {
+  margin: 12px 0;
+  background: var(--v2p-bg-block);
+}
+
+#notifications .cell[id^='n'] .payload {
+  color: var(--v2p-fg);
+  background-color: var(--v2p-bg-block);
+}
+
+.cell_tabs .cell_tab_current {
+  border-color: var(--v2p-fg);
+  font-weight: bold;
+}
+
+.cell_tabs .cell_tab {
+  color: var(--v2p-fg);
+}
+
+.onoffswitch label .frame::before {
+  color: #fff;
+  background-color: var(--v2p-accent-400);
+}
+
+.onoffswitch label .frame::after {
+  color: var(--v2p-fg-2);
+  background-color: var(--v2p-main-100);
+}
+
+.social_label:is(:link, :visited, :active) {
+  border-radius: var(--v2p-box-radius);
+  background-color: var(--v2p-btn-bg);
+  box-shadow: none;
+}
+
+.social_label:hover {
+  background-color: var(--v2p-btn-bg-hover);
+}
