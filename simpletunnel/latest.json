@@ -1,22 +1,22 @@
 {
-  "versionName": "1.14.1",
-  "versionCode": 44,
-  "notes": "- 修复 Chrome、Vivaldi 等 Chromium 内核浏览器中安装扩展失败（提示 \"Image decode failed\"）、部分请求被浏览器\"本地网络访问\"保护拦截的问题：FakeDNS 不再分配假 IPv6 地址，走代理的域名统一使用假 IPv4；走直连的域名照常使用真实 IPv6",
+  "versionName": "1.15.0",
+  "versionCode": 45,
+  "notes": "- 网络引擎升级为 sing-tun 自研 TCP/IP 协议栈（sing-box 1.15 的默认协议栈），移除 gVisor，性能、耗电和内存占用都有改善，安装包缩小约 1MB\n- 直连连接改为先连上目标服务器再接受应用的连接：目标不可达时应用会立即收到连接失败，不再出现\"先连上再断开\"\n- 直连 TCP 连接改由协议栈直接转发，大流量下载时 CPU 占用降低约 15–25%\n- 直连连接的 TCP 保活改用 sing-box 默认参数（空闲 5 分钟后才探测），减少长连接在后台的唤醒\n- 升级 sing、sing-quic、cronet-go 等依赖",
   "apks": {
     "arm64-v8a": {
-      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.14.1/SimpleTunnel-1.14.1-arm64-v8a.apk",
-      "sha256": "7974d599fb0527782f4ccd116118240b1c433196d97c11dfd1cf8f211c40a1e8",
-      "size": 24030128
+      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.15.0/SimpleTunnel-1.15.0-arm64-v8a.apk",
+      "sha256": "2e3d86fdad360a99eaf5c6bd80428538634a21417def9b363cdf74b84d6cf6bd",
+      "size": 23031336
     },
     "x86_64": {
-      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.14.1/SimpleTunnel-1.14.1-x86_64.apk",
-      "sha256": "89ce693780b4d31f49f97fd34ba39d9a5078609694b22e05839f79b08ccd951b",
-      "size": 24770634
+      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.15.0/SimpleTunnel-1.15.0-x86_64.apk",
+      "sha256": "0125bf4de6e1cd518f42da9869b021d312ba3a949bbac1fc0e7954b13ebc9b86",
+      "size": 23732818
     },
     "universal": {
-      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.14.1/SimpleTunnel-1.14.1-universal.apk",
-      "sha256": "fd6b5b975a474c26f5642809357f3ee0795f338ac33b7d47baf8250f0eb91732",
-      "size": 43313061
+      "url": "https://github.com/blankspace/releases/releases/download/simpletunnel-v1.15.0/SimpleTunnel-1.15.0-universal.apk",
+      "sha256": "960ca0868c5d4f2dd650a7b93c59fbe2009acdb109233fdf2d66cd0ba1a6772a",
+      "size": 41276497
     }
   }
 }
